@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Fullstack party</title>
+    <meta name="description" content="">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-route/angular-route.js"></script>
+    <script src="components/marked/lib/marked.js"></script>
+    <script src="components/angular-marked/dist/angular-marked.js"></script>
+
+    <style>
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 80px;
+            height: 80px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+
+</head>
+<body ng-app="app" ng-controller="AppController"  class="container-fluid">
+
+    <div ng-view class="container"></div>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers/AppController.js"></script>
+    <script src="app/controllers/IssueController.js"></script>
+    <script src="app/services/ApiService.js"></script>
+</body>
+</html>

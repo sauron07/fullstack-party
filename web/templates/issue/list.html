@@ -1,0 +1,44 @@
+<div ng-controller="IssueController" class="row" ng-init="initIssueList()">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="list-group">
+                <a ng-click="openIssue(issue.number)" ng-repeat="issue in list"
+                   class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 ">{{issue.title}}
+                            <span class="badge" ng-repeat="label in issue.labels"
+                                  style="background-color: #{{label.color}}">{{label.name}}</span>
+                        </h5>
+                    </div>
+                    <span class="badge badge-default badge-pill"><span class="glyphicon glyphicon-envelope"
+                                                                       aria-hidden="true"></span> {{issue.comments}}</span>
+                    <p class="mb-1">#{{issue.number}} opened {{issue.created_at | date }} by {{issue.user.login}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="!showLoader">
+        <div class="col-sm-12 col-sm-offset-5">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li ng-if="links.first" ng-click="clickPage(links.first)">
+                        <a aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li ng-if="links.prev" ng-click="clickPage(links.prev)"><a>{{links.prev}}</a></li>
+                    <li ng-click="clickPage(currentPage)"><a>{{currentPage}}</a></li>
+                    <li ng-if="links.next" ng-click="clickPage(links.next)"><a>{{links.next}}</a></li>
+                    <li ng-if="links.last" ng-click="clickPage(links.last)">
+                        <a aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="loader" ng-show="showLoader"></div>
+</div>
+</div>
